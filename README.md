@@ -11,7 +11,7 @@
 입사 6개월차 신입 데이터 분석가 입니다. SQL에 대해 좀 더 깊게 이해하고자 본 프로젝트를 시작합니다.
 
 ## 브랜치(프로젝트 단위)
-[UNKINDSQL](https://github.com/GiblesDeepMind/deepSql/tree/unkindSql)
+**UNKINDSQL**
 * 지극히 개인적인 공부 용도입니다. 빠진 내용이나 참조하시면서 아쉬운 부분이 있을 수 있습니다.
 * 추후 좀 더 기술적인 내용으로 업그레이드 할 예정입니다.
 
