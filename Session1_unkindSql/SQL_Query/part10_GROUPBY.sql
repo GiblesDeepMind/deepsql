@@ -18,11 +18,14 @@ and total_price = 0;
 
 /*데이터 구조 확인*/;
 
+SELECT * FROM customerorder;
+
+-- 값을 지정해주니 다시 카운트
 SELECT COUNT(*)
      , COUNT(name)
      , COUNT(distinct name)
      , COUNT(unit_price)
-     , COUNT(NVL(unit_price, 0)) -- 값을 지정해주니 다시 카운트
+     , COUNT(NVL(unit_price, 0)) 
 FROM customerorder;
 
 /*고객별 구매 수량*/
@@ -30,14 +33,6 @@ SELECT name
      , SUM(QUANTITY)
 FROM customerorder
 GROUP BY name;
-
-SELECT MAX(sum_quantity)
-FROM ( 
-    SELECT name
-         , SUM(QUANTITY) as sum_quantity
-    FROM customerorder
-    GROUP BY name
-    ) A
 
 -- 가장 많이 상품을 구매한 고객, row_number 활용
 SELECT name, sum_quantity
@@ -55,7 +50,8 @@ SELECT TO_CHAR(order_date, 'YYYY') order_year
      , SUM(quantity) sum_quantity
 FROM customerorder
 GROUP BY TO_CHAR(order_date, 'YYYY')
-ORDER BY order_year; -- 약어는 order by 절에서만 사용 가능
+ORDER BY order_year;
+-- 약어는 order by 절에서만 사용 가능
 
 --DECODE 사용
 SELECT name
@@ -148,7 +144,7 @@ GROUP BY ROLLUP((name, item_no)); -- composite column
 
 /*HAVING 절*/
 -- GROUP BY에 조건 사용
-SELECT TO_CHAR(order_date, 'YYYY') order_year
+SELECT TO_CHAR(order_date, 'YYYY')a order_year
      , SUM(quantity) sum_quantity
 FROM customerorder
 GROUP BY TO_CHAR(order_date, 'YYYY')
