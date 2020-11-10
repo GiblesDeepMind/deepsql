@@ -28,7 +28,7 @@ select * from user_info;
 
 /*purchase_order 테이블 생성*/
 CREATE TABLE purchase_order(
-    personID NUMBER,
+    personID NUMBER NOT NULL,
     orderID NUMBER NOT NULL,  
     orderDate DATE,
     Reciever VARCHAR2(50),
@@ -53,3 +53,10 @@ INSERT INTO purchase_order(personID, orderID, orderDate, Reciever, order_address
 VALUES(5, 500000002, '2020-02-22 19:22:16', '장그래', '대전', '아이패드', 1000000, 1);
 
 SELECT * FROM purchase_order;
+
+-- 에러 발생 : 무결성 오류
+INSERT INTO purchase_order(personID, orderID, orderDate, Reciever, order_address, product_name, price, quantity)
+VALUES(6, 600000001, '2020-02-23 17:42:16', '안영이', '서울', '데스크탑', 3000000, 1);
+
+-- 에러 발생 : 참조키 오류
+DROP TABLE user_info;
